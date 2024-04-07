@@ -1,12 +1,16 @@
 from django.shortcuts import render, redirect
-from .forms import UserProfileForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
+@login_required
 def home(request):
-    if request.method == 'POST':
-        form = UserProfileForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')  # 홈 페이지로 리디렉션
-    else:
-        form = UserProfileForm()
-    return render(request, 'home.html', {'form': form})
+    # 현재 로그인한 사용자 정보 가져오기
+    user = request.user
+    context = {
+        'user': user
+    }
+    return render(request, 'home.html', context)
+
+def logout_view(request):
+    logout(request)
+    return redirect('main')

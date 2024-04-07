@@ -1,24 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-    <form method="post">
+    <h1>Welcome, {{ user.name }}</h1>
+    <p>user name: {{ user.username }}</p>
+    <p>nickname: {{ user.nickname }}</p>
+    <p>e-mail: {{ user.email }}</p>
+    <p>major: {{ user.major }}</p>
+    <p>phone Number: {{ user.phone_number }}</p>
+    <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
-        <label for="name">user name</label>
-        <input type="text" name="name" maxlength="30" required><br><br>
-
-        <label for="email">email</label>
-        <input type="email" name="email" required><br><br>
-
-        <label for="major">major</label>
-        <input type="text" name="major" maxlength="20" required><br><br>
-
-        <label for="nickname">nickname</label>
-        <input type="text" name="nickname" maxlength="10" required><br><br>
-
-        <label for="phone_number">phone Number</label>
-        <input type="tel" name="phone_number" maxlength="13" required><br><br>
-
-        <button type="submit">logout</button>
+        <button type="submit">Logout</button>
     </form>
 </body>
 </html>
