@@ -10,6 +10,10 @@ class CustomUser(AbstractUser):
     nickname = models.CharField(max_length = 10)
     #password = models.CharField(max_length = 15)
     phone_number = models.CharField(max_length = 13)
+    favorite_color = models.CharField(max_length=30, blank=True, null=True)
+    mbti = models.CharField(max_length=4, blank=True, null=True)
+    favorite_fruit = models.CharField(max_length=30, blank=True, null=True)
+
 
     def save(self, *args, **kwargs):
         if not self.pk:

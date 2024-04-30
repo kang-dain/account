@@ -7,6 +7,9 @@
     <p>e-mail: {{ user.email }}</p>
     <p>major: {{ user.major }}</p>
     <p>phone Number: {{ user.phone_number }}</p>
+    <p>Favorite Color: {{ user.favorite_color }}</p>
+    <p>MBTI: {{ user.mbti }}</p>
+    <p>Favorite Fruit: {{ user.favorite_fruit }}</p>
     <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
         <button type="submit">Logout</button>

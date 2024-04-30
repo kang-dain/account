@@ -8,7 +8,7 @@ class SignUpForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ('id','name','email','major','nickname','phone_number')
+        fields = ('id','name','email','major','nickname','phone_number', 'favorite_color', 'mbti', 'favorite_fruit')
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
