@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .post-detail {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .post-detail h1 {
+            font-size: 2em;
+        }
+        .post-detail p {
+            margin: 10px 0;
+        }
+        .comments {
+            margin-top: 20px;
+        }
+        .comments h2 {
+            font-size: 1.5em;
+        }
+        .comment {
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>제목: {{ post.title }}</h1>
+    <p>게시글 내용: <br><br> {{ post.content }}</p>
+    <br><br>
+    <p>작성날짜/시간: {{ post.created_at }}</p>
+    <a href="{% url 'post:post_list' %}">게시글 목록으로 가기</a>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completed Todos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .todo-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .todo-item:last-child {
+            border-bottom: none;
+        }
+        .todo-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>Completed Todos</h1>
+    <a href="{% url 'todo:todo_list' %}">Back to Todo List</a>
+    <div>
+        {% for todo in dones %}
+            <div class="todo-item">
+                <p class="todo-title">{{ todo.title }}</p>
+                <p>{{ todo.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

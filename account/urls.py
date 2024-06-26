@@ -1,27 +1,14 @@
-"""
-URL configuration for account project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path, include
-from signup.views import signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('signup.urls')),
-    path('', include('main.urls')),
-    path('', include('login.urls')),
-    path('', include('home.urls')),
+    path('signup/', include('signup.urls')),  # signup 앱 URL 포함
+    path('main/', include('main.urls')),  # main 앱 URL 포함
+    path('login/', include('login.urls')),  # login 앱 URL 포함
+    path('home/', include('home.urls')),  # home 앱 URL 포함
+    path('guestbook/', include('guestbook.urls')),  # guestbook 앱 URL 포함
+    path('todo/', include('todo.urls')),
+    path('post/', include('post.urls', namespace='post')),
+    path('', include('home.urls')),  # 기본 URL을 home 앱으로 설정
 ]

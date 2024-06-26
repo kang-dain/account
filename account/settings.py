@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'main',
     'login',
     'home',
+    'guestbook',
+    'todo',
+    'post',
 ]
 
 MIDDLEWARE = [

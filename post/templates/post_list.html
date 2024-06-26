@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .post-list {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .post-list h1 {
+            font-size: 2em;
+        }
+        .post {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .post h2 {
+            font-size: 1.5em;
+        }
+        .post p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>게시글 목록</h1>
+    <a href="{% url 'post:post_create' %}">게시글 작성하기</a>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'post:post_detail' post.pk %}">{{ post.title }}</a>
+                <p>{{ post.content|truncatewords:30 }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

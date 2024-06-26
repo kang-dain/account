@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .todo-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .todo-item:last-child {
+            border-bottom: none;
+        }
+        .todo-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .todo-actions {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <a href="{% url 'todo:todo_post' %}">투두리스트 추가</a> | 
+    <a href="{% url 'todo:todo_done_list' %}">완료된 투두리스트</a>
+    <div>
+        {% for todo in todos %}
+            <div class="todo-item">
+                <p class="todo-title">{{ todo.title }}</p>
+                <p>{{ todo.description }}</p>
+                <div class="todo-actions">
+                    <a href="{% url 'todo:todo_detail' todo.id %}">자세히 보기</a> |
+                    <a href="{% url 'todo:todo_edit' todo.id %}">수정하기</a> |
+                    <a href="{% url 'todo:todo_done' todo.id %}">완료하기</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
